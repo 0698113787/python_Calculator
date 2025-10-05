@@ -1,0 +1,253 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body.light-mode {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e0e7ff 0%, #f5f3ff 100%);
+    transition: background 0.3s ease;
+}
+
+body.dark-mode {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1f2937;
+    transition: background 0.3s ease;
+}
+
+/* Calculator container */
+.light-mode .calculator {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+    width: 450px;
+    transition: all 0.3s ease;
+}
+
+.dark-mode .calculator {
+    background: rgba(31, 41, 55, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+    width: 450px;
+    transition: all 0.3s ease;
+}
+
+/* Header section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.light-mode .title {
+    color: #1f2937;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dark-mode .title {
+    color: #f3f4f6;
+}
+
+/* Mode toggle button */
+.mode-toggle {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.mode-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.mode-toggle:active {
+    transform: translateY(0);
+}
+
+.light-mode .mode-toggle {
+    background: #1f2937;
+    color: white;
+}
+
+.dark-mode .mode-toggle {
+    background: #ffffff;
+    color: #1f2937;
+}
+
+/* Display container - wider and taller */
+.display-container {
+    background: #000000;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.display-history {
+    color: #888888;
+    font-size: 20px;
+    min-height: 28px;
+    text-align: right;
+    margin-bottom: 12px;
+    word-wrap: break-word;
+    font-weight: 300;
+}
+
+.display {
+    color: #ffffff;
+    text-align: right;
+    font-size: 48px;
+    font-weight: 300;
+    min-height: 60px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    letter-spacing: 1px;
+}
+
+/* Button grid */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+/* Base button styles */
+button {
+    padding: 24px;
+    font-size: 22px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Number buttons */
+.num-btn {
+    background: #374151;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.num-btn:hover {
+    background: #4b5563;
+}
+
+/* Operator buttons (orange) */
+.op-btn {
+    background: #ff9500;
+    color: white;
+}
+
+.op-btn:hover {
+    background: #e08600;
+}
+
+/* Function buttons */
+.light-mode .func-btn {
+    background: #d1d5db;
+    color: #1f2937;
+    transition: all 0.3s ease;
+}
+
+.light-mode .func-btn:hover {
+    background: #9ca3af;
+}
+
+.dark-mode .func-btn {
+    background: #4b5563;
+    color: #f3f4f6;
+    transition: all 0.3s ease;
+}
+
+.dark-mode .func-btn:hover {
+    background: #6b7280;
+}
+
+/* Clear button (red) */
+.clear-btn {
+    background: #ef4444;
+    color: white;
+}
+
+.clear-btn:hover {
+    background: #dc2626;
+}
+
+/* Equal button (gradient) */
+.equal-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    grid-column: span 1;
+}
+
+.equal-btn:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+}
+
+/* Percent button */
+.percent-btn {
+    font-size: 20px;
+}
+
+/* Zero button spans one column */
+.zero-btn {
+    grid-column: span 1;
+}
+
+/* Form styling to prevent layout issues */
+form {
+    margin: 0;
+    padding: 0;
+    display: contents;
+}
+
+form button {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='calculator.css') }}">
+</head>
+<body class="light-mode">
+    <div class="calculator">
+        <div class="header">
+            <div class="title">Calculator</div>
+        </div>
+        
+        <div class="display-container">
+            <div class="display-history" id="history">{{ history }}</div>
+            <div class="display" id="display">{{ display }}</div>
+        </div>
+        
+        <div class="buttons">
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="clear">
+                <button type="submit" class="clear-btn">AC</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="delete">
+                <button type="submit" class="func-btn">⌫</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="%">
+                <button type="submit" class="func-btn percent-btn">%</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="/">
+                <button type="submit" class="op-btn">÷</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="7">
+                <button type="submit" class="num-btn">7</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="8">
+                <button type="submit" class="num-btn">8</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="9">
+                <button type="submit" class="num-btn">9</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="*">
+                <button type="submit" class="op-btn">×</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="4">
+                <button type="submit" class="num-btn">4</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="5">
+                <button type="submit" class="num-btn">5</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="6">
+                <button type="submit" class="num-btn">6</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="-">
+                <button type="submit" class="op-btn">−</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="1">
+                <button type="submit" class="num-btn">1</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="2">
+                <button type="submit" class="num-btn">2</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="3">
+                <button type="submit" class="num-btn">3</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="+">
+                <button type="submit" class="op-btn">+</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value="0">
+                <button type="submit" class="num-btn zero-btn">0</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="append">
+                <input type="hidden" name="value" value=".">
+                <button type="submit" class="num-btn">.</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="parenthesis">
+                <input type="hidden" name="value" value="(">
+                <button type="submit" class="func-btn">(</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="parenthesis">
+                <input type="hidden" name="value" value=")">
+                <button type="submit" class="func-btn">)</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="square">
+                <button type="submit" class="func-btn">x²</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="sqrt">
+                <button type="submit" class="func-btn">√</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_sign">
+                <button type="submit" class="func-btn">+/−</button>
+            </form>
+            
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="calculate">
+                <button type="submit" class="equal-btn">=</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
