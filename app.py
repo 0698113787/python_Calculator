@@ -3,7 +3,7 @@ import math
 import os
 
 app = Flask(__name__)
-app.secret_key = 'Ntshangase@2010'  # Change this to a random secret key
+app.secret_key = 'Ntshangase@2010'  
 
 @app.route('/', methods=['GET', 'POST'])
 def calculator():
