@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='calculator.css') }}">
 </head>
 <body class="light-mode">
     <div class="calculator">
         <div class="header">
             <div class="title">Calculator</div>
+            <button class="mode-toggle" onclick="toggleMode()">
+                <i class="fas fa-moon"></i> Dark Mode
+            </button>
         </div>
         
         <div class="display-container">
@@ -18,144 +22,85 @@
         </div>
         
         <div class="buttons">
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="clear">
-                <button type="submit" class="clear-btn">AC</button>
-            </form>
+            <button class="clear-btn" onclick="sendAction('clear')">AC</button>
+            <button class="func-btn" onclick="sendAction('delete')">⌫</button>
+            <button class="func-btn percent-btn" onclick="sendAction('append', '%')">%</button>
+            <button class="op-btn" onclick="sendAction('append', '/')">÷</button>
             
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="delete">
-                <button type="submit" class="func-btn">⌫</button>
-            </form>
+            <button class="num-btn" onclick="sendAction('append', '7')">7</button>
+            <button class="num-btn" onclick="sendAction('append', '8')">8</button>
+            <button class="num-btn" onclick="sendAction('append', '9')">9</button>
+            <button class="op-btn" onclick="sendAction('append', '*')">×</button>
             
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="%">
-                <button type="submit" class="func-btn percent-btn">%</button>
-            </form>
+            <button class="num-btn" onclick="sendAction('append', '4')">4</button>
+            <button class="num-btn" onclick="sendAction('append', '5')">5</button>
+            <button class="num-btn" onclick="sendAction('append', '6')">6</button>
+            <button class="op-btn" onclick="sendAction('append', '-')">−</button>
             
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="/">
-                <button type="submit" class="op-btn">÷</button>
-            </form>
+            <button class="num-btn" onclick="sendAction('append', '1')">1</button>
+            <button class="num-btn" onclick="sendAction('append', '2')">2</button>
+            <button class="num-btn" onclick="sendAction('append', '3')">3</button>
+            <button class="op-btn" onclick="sendAction('append', '+')">+</button>
             
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="7">
-                <button type="submit" class="num-btn">7</button>
-            </form>
+            <button class="num-btn zero-btn" onclick="sendAction('append', '0')">0</button>
+            <button class="num-btn" onclick="sendAction('append', '.')">.</button>
+            <button class="func-btn" onclick="sendAction('parenthesis', '(')">(</button>
+            <button class="func-btn" onclick="sendAction('parenthesis', ')')">)</button>
             
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="8">
-                <button type="submit" class="num-btn">8</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="9">
-                <button type="submit" class="num-btn">9</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="*">
-                <button type="submit" class="op-btn">×</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="4">
-                <button type="submit" class="num-btn">4</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="5">
-                <button type="submit" class="num-btn">5</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="6">
-                <button type="submit" class="num-btn">6</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="-">
-                <button type="submit" class="op-btn">−</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="1">
-                <button type="submit" class="num-btn">1</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="2">
-                <button type="submit" class="num-btn">2</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="3">
-                <button type="submit" class="num-btn">3</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="+">
-                <button type="submit" class="op-btn">+</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value="0">
-                <button type="submit" class="num-btn zero-btn">0</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="append">
-                <input type="hidden" name="value" value=".">
-                <button type="submit" class="num-btn">.</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="parenthesis">
-                <input type="hidden" name="value" value="(">
-                <button type="submit" class="func-btn">(</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="parenthesis">
-                <input type="hidden" name="value" value=")">
-                <button type="submit" class="func-btn">)</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="square">
-                <button type="submit" class="func-btn">x²</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="sqrt">
-                <button type="submit" class="func-btn">√</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="toggle_sign">
-                <button type="submit" class="func-btn">+/−</button>
-            </form>
-            
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="calculate">
-                <button type="submit" class="equal-btn">=</button>
-            </form>
+            <button class="func-btn" onclick="sendAction('square')">x²</button>
+            <button class="func-btn" onclick="sendAction('sqrt')">√</button>
+            <button class="func-btn" onclick="sendAction('toggle_sign')">+/−</button>
+            <button class="equal-btn" onclick="sendAction('calculate')">=</button>
         </div>
     </div>
+
+    <script>
+        function sendAction(action, value = '') {
+            const formData = new FormData();
+            formData.append('action', action);
+            if (value) {
+                formData.append('value', value);
+            }
+
+            fetch('/', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(html => {
+                // Parse the HTML response to extract display and history values
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                const newDisplay = doc.getElementById('display').textContent;
+                const newHistory = doc.getElementById('history').textContent;
+                
+                // Update only the display elements without reloading the page
+                document.getElementById('display').textContent = newDisplay;
+                document.getElementById('history').textContent = newHistory;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function toggleMode() {
+            const body = document.body;
+            const button = document.querySelector('.mode-toggle');
+            const icon = button.querySelector('i');
+            
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                icon.className = 'fas fa-sun';
+                button.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                icon.className = 'fas fa-moon';
+                button.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+            }
+        }
+    </script>
 </body>
 </html>
