@@ -221,13 +221,13 @@ button:active {
 
 /* Equal button (gradient) */
 .equal-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #6b7280;
     color: white;
     grid-column: span 1;
 }
 
 .equal-btn:hover {
-    background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+    background: #4b5563;
 }
 
 /* Percent button */
