@@ -39,26 +39,19 @@ calculator/
 
 ### Local Setup
 
-1. **Clone the repository**
-
-```bash
-git clone https://github.com/yourusername/calculator.git
-cd calculator
-```
-
-2. **Install dependencies**
+1. **Install dependencies**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Run the application**
+2. **Run the application**
 
 ```bash
 python -m flask run / python app.py
 ```
 
-4. **Open your browser**
+3. **Open your browser**
 
 Navigate to `http://localhost:5000`
 
